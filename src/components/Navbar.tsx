@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
+import Image from "next/image"; // Import Image from next/image
+import Logo from "../../public/courses/logo.jpg"; // Correct import for image
+
 
 function Navbar({ className }: { className?: string }) {
     const [active, setActive] = useState<string | null>(null);
@@ -11,6 +14,8 @@ function Navbar({ className }: { className?: string }) {
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
         <Menu setActive={setActive}>
+        <Image src={Logo} alt="logo" width={80} height={80} className="mx-5 px-2"/> {/* Use Image component */}
+            <br></br>
             <Link href={"/"}><MenuItem setActive={setActive} active={active} 
             item="Home">
             </MenuItem></Link>
